@@ -23,7 +23,7 @@ struct Character: Decodable {
   struct Origin: Decodable {
     let name: String
   }
-
+  
   struct Location: Decodable {
     let name: String
   }
