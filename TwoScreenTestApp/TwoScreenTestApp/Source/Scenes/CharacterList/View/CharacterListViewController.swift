@@ -39,6 +39,7 @@ class CharacterListViewController: UIViewController {
     setup()
     setupUI()
     interactor?.fetchCharacters(request: CharacterList.FetchCharacters.Request(), onScroll: false)
+    updateInternetStatus(isConnected: ReachabilityService.shared.isConnected)
   }
   
   func updateInternetStatus(isConnected: Bool) {
