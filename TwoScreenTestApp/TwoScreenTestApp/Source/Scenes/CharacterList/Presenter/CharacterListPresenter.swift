@@ -21,7 +21,7 @@ class CharacterListPresenter: CharacterListPresentationLogic {
       CharacterList.FetchCharacters.ViewModel.Character(
         id: $0.id,
         name: $0.name,
-        description: "\($0.status) - \($0.species) from \($0.origin.name)\n\n Some text for additional lines",
+        description: "\($0.status) - \($0.species) from \($0.origin.name)\n\nSome text for additional lines",
         imageURL: $0.image
       )
     }

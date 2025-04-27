@@ -20,6 +20,8 @@ enum CharacterDetail {
       let name: String
       let description: String
       let imageURL: String
+      let status: String
+      let species: String
     }
   }
 }

@@ -19,6 +19,7 @@ final class CharacterListCell: UITableViewCell {
     imageView.contentMode = .scaleAspectFill
     imageView.clipsToBounds = true
     imageView.layer.cornerRadius = 8
+    imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
   }()
   
@@ -26,6 +27,7 @@ final class CharacterListCell: UITableViewCell {
     let label = UILabel()
     label.font = .boldSystemFont(ofSize: 18)
     label.numberOfLines = 1
+    label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
@@ -33,6 +35,7 @@ final class CharacterListCell: UITableViewCell {
     let label = UILabel()
     label.font = .systemFont(ofSize: 14)
     label.numberOfLines = 2
+    label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
   
@@ -40,6 +43,8 @@ final class CharacterListCell: UITableViewCell {
     let button = UIButton(type: .system)
     button.setTitle("More", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+    button.translatesAutoresizingMaskIntoConstraints = false
+    
     return button
   }()
   
@@ -69,11 +74,6 @@ final class CharacterListCell: UITableViewCell {
   }
   
   private func setupConstraints() {
-    characterImageView.translatesAutoresizingMaskIntoConstraints = false
-    nameLabel.translatesAutoresizingMaskIntoConstraints = false
-    descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-    moreButton.translatesAutoresizingMaskIntoConstraints = false
-    
     NSLayoutConstraint.activate([
       characterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
       characterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
