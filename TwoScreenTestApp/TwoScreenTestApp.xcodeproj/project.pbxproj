@@ -6,8 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6A02134E2DBEC2770051A094 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6A02134D2DBEC2770051A094 /* SDWebImage */; };
+		6A0213502DBEC2770051A094 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A02134F2DBEC2770051A094 /* SDWebImageMapKit */; };
+		6A0213832DBEC6C90051A094 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0213822DBEC6C90051A094 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		6A02132A2DBEBF8E0051A094 /* TwoScreenTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TwoScreenTestApp.app; path = "/Users/dirayser/Projects/TwoScreenTestApp/TwoScreenTestApp/build/Debug-iphoneos/TwoScreenTestApp.app"; sourceTree = "<absolute>"; };
+		6A0213612DBEC5F70051A094 /* TwoScreenTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoScreenTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0213832DBEC6C90051A094 /* Alamofire in Frameworks */,
+				6A02134E2DBEC2770051A094 /* SDWebImage in Frameworks */,
+				6A0213502DBEC2770051A094 /* SDWebImageMapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				6A02132C2DBEBF8E0051A094 /* TwoScreenTestApp */,
+				6A0213612DBEC5F70051A094 /* TwoScreenTestApp.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,9 +79,12 @@
 			);
 			name = TwoScreenTestApp;
 			packageProductDependencies = (
+				6A02134D2DBEC2770051A094 /* SDWebImage */,
+				6A02134F2DBEC2770051A094 /* SDWebImageMapKit */,
+				6A0213822DBEC6C90051A094 /* Alamofire */,
 			);
 			productName = TwoScreenTestApp;
-			productReference = 6A02132A2DBEBF8E0051A094 /* TwoScreenTestApp.app */;
+			productReference = 6A0213612DBEC5F70051A094 /* TwoScreenTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,6 +111,10 @@
 			);
 			mainGroup = 6A0213212DBEBF8E0051A094;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6A02134C2DBEC2770051A094 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6A0213812DBEC6C90051A094 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6A0213212DBEBF8E0051A094;
 			projectDirPath = "";
@@ -144,6 +161,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -172,6 +190,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,6 +345,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A02134C2DBEC2770051A094 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.0;
+			};
+		};
+		6A0213812DBEC6C90051A094 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A02134D2DBEC2770051A094 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A02134C2DBEC2770051A094 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		6A02134F2DBEC2770051A094 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A02134C2DBEC2770051A094 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		6A0213822DBEC6C90051A094 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A0213812DBEC6C90051A094 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A0213222DBEBF8E0051A094 /* Project object */;
 }
