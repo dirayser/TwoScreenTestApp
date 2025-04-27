@@ -16,6 +16,28 @@ class CharacterListPresenter: CharacterListPresentationLogic {
   
   weak var viewController: CharacterListDisplayLogic?
   
+  private var networkObserver: NSObjectProtocol?
+  
+  init() {
+    networkObserver = NotificationCenter.default.addObserver(
+      forName: .networkStatusChanged,
+      object: nil,
+      queue: .main
+    ) { [weak self] notification in
+      guard let self = self else { return }
+      // Извлекаем статус из userInfo
+      if let isConnected = notification.userInfo?["isConnected"] as? Bool {
+        self.viewController?.updateInternetStatus(isConnected: isConnected)
+      }
+    }
+  }
+  
+  deinit {
+    if let observer = networkObserver {
+      NotificationCenter.default.removeObserver(observer)
+    }
+  }
+  
   func presentCharacters(response: CharacterList.FetchCharacters.Response) {
     let viewModels = response.characters.map {
       CharacterList.FetchCharacters.ViewModel.Character(

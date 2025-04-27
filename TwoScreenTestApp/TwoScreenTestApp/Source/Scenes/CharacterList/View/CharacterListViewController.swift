@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharacterListDisplayLogic: AnyObject {
   func displayCharacters(viewModel: CharacterList.FetchCharacters.ViewModel)
+  func updateInternetStatus(isConnected: Bool)
   func displayError(message: String)
 }
 
@@ -19,13 +20,32 @@ class CharacterListViewController: UIViewController {
   
   private var characters: [CharacterList.FetchCharacters.ViewModel.Character] = []
   
+  private let noInternetLabel: UILabel = {
+    let label = UILabel()
+    label.text = "No internet connection"
+    label.backgroundColor = .systemRed
+    label.textColor = .white
+    label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+    label.isHidden = true
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
+  
   private let tableView = UITableView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
     setupUI()
-    interactor?.fetchCharacters(request: CharacterList.FetchCharacters.Request())
+    interactor?.fetchCharacters(request: CharacterList.FetchCharacters.Request(), onScroll: false)
+  }
+  
+  func updateInternetStatus(isConnected: Bool) {
+    UIView.animate(withDuration: 0.3) {
+      self.noInternetLabel.alpha = isConnected ? 0 : 1
+    }
+    self.noInternetLabel.isHidden = isConnected
   }
   
   private func setup() {
@@ -53,9 +73,15 @@ class CharacterListViewController: UIViewController {
     tableView.separatorStyle = .none
     
     view.addSubview(tableView)
+    view.addSubview(noInternetLabel)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
+      noInternetLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      noInternetLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      noInternetLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      noInternetLabel.heightAnchor.constraint(equalToConstant: 30),
+      
       tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
       tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -112,7 +138,7 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     let scrollViewHeight = scrollView.frame.size.height
     
     if position > contentHeight - scrollViewHeight * 1.5 {
-      interactor?.fetchCharacters(request: .init())
+      interactor?.fetchCharacters(request: .init(), onScroll: true)
     }
   }
   
